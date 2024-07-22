@@ -16,7 +16,7 @@ services:
     tty: true
     stdin_open: true
     network_mode: "host"
-    priviliged: true
+    privileged: true
     ulimits:
       rtprio: 70
       rttime: -1
