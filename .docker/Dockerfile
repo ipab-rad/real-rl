@@ -64,9 +64,9 @@ RUN DEBIAN_FRONTEND=noninteractive \
 COPY . .
 
 # setting up the workspace
-RUN apt-get update \
-    rosdep init \
-    rosdep update \
+RUN apt-get update && \
+    rosdep init && \
+    rosdep update && \
     rosdep install --from-paths src --ignore-src -r -y --rosdistro ${ROS_DISTRO}
 
 WORKDIR $WORKSPACE
