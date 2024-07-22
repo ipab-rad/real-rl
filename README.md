@@ -17,4 +17,4 @@ Run the following commands to fire up a docker container and shell into it
 
 In a different terminal you can retrieve shell access with the following.
 
-    docker compose exec -it <name of container> bash
+    docker compose exec -it <name of service> bash
