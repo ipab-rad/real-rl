@@ -1,0 +1,17 @@
+[submodule "src/control/franka_ros"]
+	path = src/control/franka_ros
+	url = git@github.com:kamiradi/franka_ros.git
+	branch = noetic-devel
+[submodule "src/control/serl_franka_controllers"]
+	path = src/control/serl_franka_controllers
+	url = git@github.com:kamiradi/serl_franka_controllers.git
+[submodule "src/control/robotiq"]
+	path = src/control/robotiq
+	url = https://github.com/ian-chuang/robotiq.git
+	branch = noetic-devel
+[submodule "src/control/rad_panda_description"]
+	path = src/control/rad_panda_description
+	url = git@github.com:ipab-rad/rad_panda_description.git
+[submodule "src/reasoning/serl"]
+	path = src/reasoning/serl
+	url = https://github.com/rail-berkeley/serl.git
