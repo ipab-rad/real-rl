@@ -1,3 +1,3 @@
-# Reinfrocement Learning baselines on the Real Robot
+# Reinforcement Learning baselines on the Real Robot
 
 Under construction.
