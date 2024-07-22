@@ -10,7 +10,8 @@ command
     git clone git@github.com:kamiradi/real-rl.git
     git submodule update --init --recursive
 
-Run the following commands to fire up a docker container and shell into it
+From the parent directory run the following commands to fire up a docker
+container and shell into it
 
     docker compose build
     docker compose up
