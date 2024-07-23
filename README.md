@@ -7,7 +7,7 @@ Under construction.
 Clone the repository locally and fetch all submodules with the following
 command
 
-    git clone git@github.com:kamiradi/real-rl.git
+    git clone git@github.com:ipab-rad/real-rl.git
     git submodule update --init --recursive
 
 From the parent directory run the following commands to fire up a docker
