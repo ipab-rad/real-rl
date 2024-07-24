@@ -62,16 +62,28 @@ RUN DEBIAN_FRONTEND=noninteractive \
     export PYTHONPATH="/opt/drake/lib/python$(python3 -c 'import sys; print("{0}.{1}".format(*sys.version_info))')/site-packages${PYTHONPATH:+:${PYTHONPATH}}"
 
 COPY . .
+# python management
+RUN git clone https://github.com/pyenv/pyenv.git /pyenv
+ENV PYENV_ROOT /pyenv
+RUN /pyenv/bin/pyenv install 3.10.4
 
+
+WORKDIR ${WORKSPACE}/src/reasoning/serl/serl_launcher/
+
+RUN eval "$(/pyenv/bin/pyenv init -)"  && \
+    /pyenv/bin/pyenv shell 3.10.4 && \
+    pip install -e . && \
+    pip install -r requirements.txt
+
+WORKDIR ${WORKSPACE}
 # setting up the workspace
 RUN apt-get update && \
     rosdep init && \
     rosdep update && \
     rosdep install --from-paths src --ignore-src -r -y --rosdistro ${ROS_DISTRO}
 
-WORKDIR $WORKSPACE
 
-RUN rm -rf $ROS_UNDERLAY
+RUN rm -rf ${ROS_UNDERLAY}
 
 # create entrypoint
 COPY .docker/ros_entrypoint.sh /sbin/ros_entrypoint.sh

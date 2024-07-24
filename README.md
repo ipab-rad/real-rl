@@ -24,3 +24,16 @@ In a different terminal you can retrieve shell access with the following.
 # Troubleshooting and optimization
 
 ## 3.8 - 3.10
+
+Pyenv steps
+
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+    echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+    exec "$SHELL"
+    pyenv install 3.10.4
+    pyenv shell 3.10.4
+    cd <dir>/serl/serl_launcher
+    pip install -e .
+    pip install -r requirements.txt
