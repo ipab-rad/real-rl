@@ -20,6 +20,16 @@ In a different terminal you can retrieve shell access with the following.
 
     docker compose exec -it <name of service> bash
 
+For now, every time you start the container run the following (TODO: add the
+following to the Dockerfile)
+
+    echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+    exec "$SHELL"
+    pyenv shell 3.10.4
+    cd /root/workspace/src/reasoning/serl/serl_launcher
+    pip install -e .
+    pip install -r requirements.txt
 
 # Troubleshooting and optimization
 
