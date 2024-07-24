@@ -1,7 +1,7 @@
 services:
   real_rl:
-    image: real_rl:latest
-    container_name: rl_kamiradi
+    image: real_rl_${USER}:latest
+    container_name: rl_${USER}
     build:
       context: .
       dockerfile: .docker/Dockerfile
