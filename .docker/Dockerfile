@@ -74,17 +74,20 @@ ENV PYENV_ROOT /pyenv
 RUN /pyenv/bin/pyenv install 3.10.4
 
 
-# WORKDIR ${WORKSPACE}/src/reasoning/serl/serl_launcher/
-# 
-# # RUN command -v /pyenv/bin/pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH" && \
-# 
-# RUN /pyenv/bin/pyenv init - && \
-#     /pyenv/bin/pyenv shell 3.10.4 && \
-#     pip install -e . && \
-#     pip install -r requirements.txt
+WORKDIR $WORKSPACE
+COPY . .
+WORKDIR ${WORKSPACE}/src/reasoning/serl/serl_launcher/
+
+# RUN command -v /pyenv/bin/pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH" && \
+RUN echo $(ls)
+
+RUN eval "$(/pyenv/bin/pyenv init -)" && \
+    /pyenv/bin/pyenv local 3.10.4 && \
+    python -m pip install --upgrade pip && \
+    pip install -e . && \
+    pip install -r requirements.txt
 
 WORKDIR ${WORKSPACE}
-COPY . .
 
 # setting up the workspace
 RUN apt-get update && \
